@@ -1,0 +1,13 @@
+
+services:
+  blog-counter:
+    build: .
+    container_name: blog-counter
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      # visitor-stats.json 영속화 (컨테이너 재시작해도 유지)
+      - ./visitor-stats.json:/app/visitor-stats.json
+    restart: unless-stopped

@@ -1,0 +1,39 @@
+# ===== Node.js =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ===== Environment variables =====
+.env
+.env.*
+!.env.example
+
+# ===== Runtime data / local state =====
+visitor-stats.json
+
+# ===== Build / cache =====
+dist/
+build/
+.cache/
+
+# ===== OS files =====
+.DS_Store
+Thumbs.db
+
+# ===== Editor / IDE =====
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===== Docker =====
+docker-compose.override.yml
+
+# ===== Coverage / test =====
+coverage/
+.nyc_output/
+
+# ===== Misc =====
+*.log
