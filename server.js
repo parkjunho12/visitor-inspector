@@ -6,8 +6,23 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 
+const corsOptions = {
+    origin: [
+      "https://junho.uk",
+      "https://www.junho.uk",
+      // 개발 중이면 필요 시 추가
+      // "http://localhost:5173",
+      // "http://localhost:3000",
+    ],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: false, // 지금은 쿠키/세션 안 쓰니 false 권장
+    maxAge: 86400,      // preflight 캐시 24h
+  };
+
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions)); // preflight 명시 처리
 app.use(express.json());
 
 // Data file path

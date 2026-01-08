@@ -8,6 +8,6 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      # visitor-stats.json 영속화 (컨테이너 재시작해도 유지)
-      - ./visitor-stats.json:/app/visitor-stats.json
-    restart: unless-stopped
+      - type: bind
+        source: ./visitor-stats.json
+        target: /app/visitor-stats.json
